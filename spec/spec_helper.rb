@@ -1,5 +1,5 @@
 require "bundler/setup"
-require "method_injector/method_injector"
+require_relative "../lib/method_injector"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

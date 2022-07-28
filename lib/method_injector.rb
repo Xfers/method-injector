@@ -1,5 +1,3 @@
-require "pry"
-
 module MethodInjector
   def self.hook_method(target, target_method, &user_block)
     target_method = target.instance_method(target_method)
@@ -9,6 +7,8 @@ module MethodInjector
   end
 
   def self.inject_debugger(target, target_method)
+    require "pry"
+
     hook_method(target, target_method) do |mth, args, &blk|
       binding.pry # rubocop:disable Lint/Debugger(Rubocop)
       mth.call(*args, &blk)
