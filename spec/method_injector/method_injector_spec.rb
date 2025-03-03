@@ -23,9 +23,9 @@ RSpec.describe MethodInjector do
 
   it "hooks method" do
     called = false
-    described_class.hook_method(my_class, :original) do |mth, args, &blk|
+    described_class.hook_method(my_class, :original) do |mth, *args, **kwargs,  &blk|
       called = true
-      mth.call(*args, &blk)
+      mth.call(*args, **kwargs, &blk)
     end
 
     obj = my_class.new
@@ -36,9 +36,9 @@ RSpec.describe MethodInjector do
 
   it "hooks singleton method" do
     called = false
-    described_class.hook_method(my_class.singleton_class, :original) do |mth, args, &blk|
+    described_class.hook_method(my_class.singleton_class, :original) do |mth, *args, **kwargs, &blk|
       called = true
-      mth.call(*args, &blk)
+      mth.call(*args, **kwargs, &blk)
     end
 
     my_class.original
