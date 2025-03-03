@@ -5,8 +5,8 @@ require "method_injector/common/version"
 Gem::Specification.new do |spec|
   spec.name          = "method-injector"
   spec.version       = MethodInjector::Common::VERSION
-  spec.authors       = ["Tim Hsu"]
-  spec.email         = ["tim37021@gmail.com"]
+  spec.authors       = ["Tim Hsu", "Eshton Robateau"]
+  spec.email         = ["tim37021@gmail.com", "eshton.robateau@fazzfinancial.com"]
 
   spec.summary       = %q{Easy inject hook method}
   spec.description   = %q{}
