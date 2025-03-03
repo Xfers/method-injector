@@ -2,7 +2,7 @@ module MethodInjector
   def self.hook_method(target, target_method, &user_block)
     target_method = target.instance_method(target_method)
     target.define_method target_method.name do |*args, **kwargs, &blk|
-      user_block.call(target_method.bind(self), args, **kwargs, &blk)
+      user_block.call(target_method.bind(self), *args, **kwargs, &blk)
     end
   end
 
